@@ -16,10 +16,10 @@ export default class Post extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // TODO: can you make this.fetchPost run when the component is updated?
     // remember to check if the ID prop has changed, so we don't
     // make network calls that are pointless
     if (prevProps.id !== this.props.id) {
+      this.fetchPost()
     }
   }
 

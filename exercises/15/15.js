@@ -17,10 +17,6 @@ class PostSearch extends Component {
 
   onSubmit = e => {
     e.preventDefault()
-    // TODO: when the user updates the form and hits submit,
-    // the new post is not loaded correctly
-    // can you fix the bug?
-    // HINT: the problem is in post.js, not here!
     this.setState({ searchId: Number(this.state.userPostInput) })
   }
 
