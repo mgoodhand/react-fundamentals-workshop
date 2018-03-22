@@ -21,9 +21,7 @@ class Post extends Component {
 
     fetch(urlForPost).then(response => {
       const post = response.data
-      this.setState({
-        post: post
-      })
+      this.setState({ post })
     })
   }
 
@@ -44,7 +42,7 @@ class Post extends Component {
 }
 
 const App = () => {
-  return <Post id={1} />
+  return <Post id={42} />
 }
 
 ReactDOM.render(<App />, document.getElementById('react-root'))
