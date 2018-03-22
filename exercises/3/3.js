@@ -10,6 +10,10 @@ const HelloWorld = props => {
 }
 
 ReactDOM.render(
-  <HelloWorld name="Jack" />,
+  // props are all just JavaScript, so you can pass through any data type - these aren't HTML attributes
+  <div>
+      <HelloWorld name="Mark" />
+      <HelloWorld name="Bob" />
+  </div>,
   document.getElementById('react-root')
 )
