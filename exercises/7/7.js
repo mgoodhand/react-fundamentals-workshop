@@ -13,6 +13,10 @@ class Counter extends Component {
     }
   }
 
+  static propTypes = {
+      start: PropTypes.number
+  }
+
   onButtonClickIncrement() {
     this.setState(prevState => {
       return { count: prevState.count + 1 }
@@ -39,10 +43,6 @@ class Counter extends Component {
     )
   }
 
-}
-
-Counter.propTypes = {
-    start: PropTypes.number
 }
 
 const App = () => {
