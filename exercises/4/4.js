@@ -6,24 +6,28 @@ import React from 'react'
 const HelloWorld = props => {
   return (
     <h1>
-      Hello, {props.name}, {props.age}, {props.colour}
+      {props.greeting}, {props.name}, {props.age}, {props.colour}
     </h1>
   )
 }
 
 const bunchOfProps = {
-  name: 'Jack',
-  age: 25,
+  name: 'Mark',
+  age: 39,
   colour: 'blue',
+  greeting: 'Yo',
 }
 
-// TODO: use the spread operator to pass through all the object keys as prop
-// TODO: add another prop that customises the greeting that is used
+// the spread operator passes through all the object keys as prop
 ReactDOM.render(
+  <div>
   <HelloWorld
     name={bunchOfProps.name}
     age={bunchOfProps.age}
     colour={bunchOfProps.colour}
-  />,
+    greeting={bunchOfProps.greeting}
+  />
+  <HelloWorld {...bunchOfProps} />
+  </div>,
   document.getElementById('react-root')
 )
