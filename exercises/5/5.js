@@ -20,8 +20,11 @@ HelloWorld.propTypes = {
   colour: PropTypes.oneOf(['blue', 'red']).isRequired,
 }
 
-const bunchOfProps = {
+HelloWorld.defaultProps = {
   name: 'Mark',
+}
+
+const bunchOfProps = {
   age: 39,
   colour: 'red',
 }
