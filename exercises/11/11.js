@@ -9,9 +9,10 @@ const MakeThingsBlue = props => {
 }
 
 MakeThingsBlue.propTypes = {
-  // TODO: fill in the prop types
-  // you might need https://reactjs.org/docs/typechecking-with-proptypes.html
-  // to figure out what the proptype is
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element
+  ])
 }
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
   return (
     <MakeThingsBlue>
       <p>Hello world</p>
+      <p>Hello dog</p>
     </MakeThingsBlue>
   )
 }
