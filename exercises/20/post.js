@@ -5,9 +5,6 @@ import fetch from 'so-fetch-js'
 export default class Post extends Component {
   static propTypes = {
     id: PropTypes.number,
-    // TODO: update the prop types so we take children or render
-    // (you can't declare this explicitly, but you can declare two props that
-    // are both not required)
     children: PropTypes.func,
     render: PropTypes.func,
   }
