@@ -28,7 +28,6 @@ class Post extends Component {
   }
 
   render() {
-    // TODO: return something other than "null" when we don't have a post
     if (!this.state.post) return (
       <div>
         Post {this.props.id} not found.
