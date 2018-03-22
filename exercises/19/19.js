@@ -4,15 +4,8 @@ import ReactDOM from 'react-dom'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Post from './post'
+import PostOutput from './post-output'
 import UserInput from './input'
-
-// PostOutput.propTypes = {
-//   post: PropTypes.shape({
-//     id: PropTypes.number,
-//     title: PropTypes.string,
-//     body: PropTypes.string,
-//   }),
-// }
 
 class PostSearch extends Component {
   state = {
@@ -27,26 +20,16 @@ class PostSearch extends Component {
     return (
       <div>
         <UserInput onSearchInputChange={this.onSubmit} />
-        {/* TODO: update this render function to output the post if we have one
-             or render "Loading" if we don't have a post
-            */}
-        <Post id={this.state.searchId} render={ post => 
-       <div>
-       {post ? (
-         <div>
-           <span>Loaded post ID: {post.id}</span>
-           <h1>{post.title}</h1>
-           <p>{post.body}</p>
-         </div>
-       ) : (
-         <p>Loading...</p>
-       )}
-     </div> 
+        <Post id={this.state.searchId} render={ post =>
+          <div>
+          {post ? (
+              <PostOutput id={post.id} title={post.title} body={post.body}/>
+          ) : (
+            <p>Loading...</p>
+          )}
+          </div> 
         }
         />
-        {/* TODO: once you've done that, pull that logic into a PostOutput component
-          * (hint: you'll find the prop types above) and use that within the render func
-          */}
       </div>
     )
   }
