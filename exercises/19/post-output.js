@@ -12,9 +12,9 @@ export default class PostOutput extends Component {
   render() {
     return (
          <div>
-           <span>Loaded post ID: {this.props.id}</span>
-           <h1>{this.props.title}</h1>
-           <p>{this.props.body}</p>
+           <span>Loaded post ID: {this.props.post.id}</span>
+           <h1>{this.props.post.title}</h1>
+           <p>{this.props.post.body}</p>
          </div>
     )
   }

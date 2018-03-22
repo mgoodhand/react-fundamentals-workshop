@@ -23,7 +23,7 @@ class PostSearch extends Component {
         <Post id={this.state.searchId} render={ post =>
           <div>
           {post ? (
-              <PostOutput id={post.id} title={post.title} body={post.body}/>
+              <PostOutput post={post}/>
           ) : (
             <p>Loading...</p>
           )}
