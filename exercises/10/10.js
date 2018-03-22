@@ -43,23 +43,19 @@ class Counter extends Component {
   }
 
   render() {
-    // TODO: generate the list of count components automatically
-    // rather than hardcoding them
     return (
       <div>
-        <Count
-          count={this.state.counts[0]}
-          onIncrement={this.incrementCount.bind(this, 0)}
-        />
-
-        <Count
-          count={this.state.counts[1]}
-          onIncrement={this.incrementCount.bind(this, 1)}
-        />
+        {
+          this.state.counts.map((count, index) => (
+            <Count
+              count={count}
+              onIncrement={this.incrementCount.bind(this, index)}
+              key={index}
+            />
+          ))
+        }
       </div>
     )
-    // TODO: once you do the above TODO, you'll see a warning in your console
-    // where React tells you you're missing a key property. See if you can investigate...
   }
 }
 
