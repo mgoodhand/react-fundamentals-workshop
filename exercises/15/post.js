@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import fetch from 'so-fetch-js'
 
+const cache = {}
+
 export default class Post extends Component {
   static propTypes = {
     id: PropTypes.number,
@@ -27,10 +29,20 @@ export default class Post extends Component {
     const urlForPost = `https://jsonplaceholder.typicode.com/posts/${
       this.props.id
     }`
-
-    fetch(urlForPost).then(response => {
-      this.setState({ post: response.data })
-    })
+    if (cache[this.props.id]) {
+      this.setState( {
+        post: cache[this.props.id]
+      })
+    }
+    else {
+      fetch(urlForPost).then(response => {
+        cache[this.props.id] = response.data
+        this.setState( {
+              post: response.data 
+          } 
+        )
+      })
+    }
   }
 
   render() {
