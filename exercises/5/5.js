@@ -16,12 +16,13 @@ const HelloWorld = props => {
 // Typescript obviates the need for PropTypes.
 HelloWorld.propTypes = {
   name: PropTypes.string.isRequired,
+  age: PropTypes.number.isRequired,
   colour: PropTypes.oneOf(['blue', 'red']).isRequired,
 }
 
 const bunchOfProps = {
-  name: 'Jack',
-  age: 25,
+  name: 'Mark',
+  age: 39,
   colour: 'red',
 }
 
