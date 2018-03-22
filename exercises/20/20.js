@@ -33,12 +33,6 @@ class PostSearch extends Component {
         <Post id={this.state.searchId}>
           {post => <PostOutput post={post} />}
         </Post>
-
-        {/* TODO: can you make it so we can use <Post /> by passing
-          * either a `render` prop or a `children` prop?
-          * so that the below component outputs the same output as the above component?
-          * you'll have to edit the code in post.js :)
-          */}
         <Post
           id={this.state.searchId}
           render={post => <PostOutput post={post} />}
