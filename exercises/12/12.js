@@ -26,18 +26,17 @@ class Post extends Component {
   }
 
   render() {
-    if (!this.state.post) return (
+    return this.state.post ? (
+      <div>
+        <h1>{this.state.post.title}</h1>
+        <p>{this.state.post.body}</p>
+      </div>
+    ) : (
       <div>
         Post {this.props.id} not found.
       </div>
     )
 
-    return (
-      <div>
-        <h1>{this.state.post.title}</h1>
-        <p>{this.state.post.body}</p>
-      </div>
-    )
   }
 }
 
