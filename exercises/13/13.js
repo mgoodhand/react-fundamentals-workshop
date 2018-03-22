@@ -13,13 +13,17 @@ class Post extends Component {
 
   userInputChange = e => {
     console.log('got user input value', e.target.value)
-    // TODO: update the userPostInput state with the new value when the user types
+    this.setState({ userPostInput: e.target.value }) 
   }
 
   onSubmit = e => {
+    console.log('Go')
     e.preventDefault()
-    console.log('got form submit!')
-    // TODO: update the searchID state with the latest user post ID when the form is submitted
+    this.setState({ searchId: this.state.userPostInput }) 
+  }
+
+  clearInput = () => {
+    this.setState({ userPostInput: ''}) 
   }
 
   render() {
@@ -35,7 +39,8 @@ class Post extends Component {
               onChange={this.userInputChange}
             />
           </label>
-          <button type="submit">Go</button>
+          <button type="submit" onClick={this.onSubmit}>Go</button>
+          <button type="button" onClick={this.clearInput}>Clear</button>
           {/* TODO: add another button that clears out the user input value */}
         </form>
 
