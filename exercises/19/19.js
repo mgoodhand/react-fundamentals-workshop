@@ -30,7 +30,20 @@ class PostSearch extends Component {
         {/* TODO: update this render function to output the post if we have one
              or render "Loading" if we don't have a post
             */}
-        <Post id={this.state.searchId} render={() => null} />
+        <Post id={this.state.searchId} render={ post => 
+       <div>
+       {post ? (
+         <div>
+           <span>Loaded post ID: {post.id}</span>
+           <h1>{post.title}</h1>
+           <p>{post.body}</p>
+         </div>
+       ) : (
+         <p>Loading...</p>
+       )}
+     </div> 
+        }
+        />
         {/* TODO: once you've done that, pull that logic into a PostOutput component
           * (hint: you'll find the prop types above) and use that within the render func
           */}
