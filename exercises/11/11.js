@@ -8,15 +8,14 @@ const MakeThingsBlue = props => {
   return <div style={{ color: 'blue' }}>{props.children}</div>
 }
 
+// 'node' is "Anything that can be rendered: numbers, strings, elements or an array
+// (or fragment) containing these types"
+// https://reactjs.org/docs/typechecking-with-proptypes.html
 MakeThingsBlue.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.element),
-    PropTypes.element
-  ])
+  children: PropTypes.node
 }
 
 const App = () => {
-  // TODO: rewrite this function passing in the children prop explicitly
   return (
     <MakeThingsBlue>
       <p>Hello world</p>
