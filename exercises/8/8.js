@@ -6,15 +6,25 @@ import PropTypes from 'prop-types'
 
 // notice that Count has no idea who its parent is
 const Count = props => {
-  return <p>Count: {props.count}</p>
+  return <p>{props.label}: {props.count}</p>
 }
+
+Count.propTypes = {
+  count: PropTypes.number.isRequired,
+  label: PropTypes.string.isRequired
+}
+
+Count.defaultProps = {
+  label: 'Count'
+}
+
 
 class Counter extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      count: 0,
+      count: props.start,
     }
   }
 
@@ -25,12 +35,11 @@ class Counter extends Component {
   }
 
   render() {
-    // TODO: add two more count components
-    // one that shows the next value below and another that
-    // shows the next value up from the current count
     return (
       <div>
+        <Count label="Prev" count={this.state.count-1} />
         <Count count={this.state.count} />
+        <Count label="Next" count={this.state.count+1} />
         <button onClick={this.onButtonClickIncrement.bind(this)}>
           Click to increment
         </button>
@@ -39,11 +48,8 @@ class Counter extends Component {
   }
 }
 
-// TODO: make the counter component take a prop that configures the starting value
-// so I could do <Counter start={4} /> to start the counter at 4
-// remember to document it with prop types!
 const App = () => {
-  return <Counter />
+  return <Counter start={4}/>
 }
 
 ReactDOM.render(<App />, document.getElementById('react-root'))
