@@ -20,9 +20,14 @@ export default class UserActions extends Component {
     return (
       <div>
         {/* TODO: can you disable the button if the user has liked the post?*/}
-        <button onClick={this.like} onClick={this.like}>
-          ❤
-        </button>
+        <AuthContext.Consumer>
+          {signedIn => signedIn ?  (
+            <button onClick={this.like} onClick={this.like}>
+              ❤
+            </button>
+          ) : (<p>Sign in to like posts</p>)
+          }
+        </AuthContext.Consumer>
         {this.state.liked && <span>You've liked this post!</span>}
       </div>
     )
