@@ -4,8 +4,12 @@ import ReactDOM from 'react-dom'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-// TODO: add propTypes to the Count component
 class Count extends Component {
+  static propTypes = {
+    count: PropTypes.number.isRequired,
+    onIncrement: PropTypes.func.isRequired
+  }
+
   onButtonClick() {
     this.props.onIncrement()
   }
@@ -25,8 +29,8 @@ class Counter extends Component {
     super(props)
 
     this.state = {
-      count1: 0,
-      count2: 0,
+      count1: props.start,
+      count2: props.start,
     }
   }
 
@@ -43,25 +47,23 @@ class Counter extends Component {
   }
 
   render() {
-    // TODO: create another <Count /> component
-    // that deals with this.state.count2
-    // and lets it be incremented
     return (
       <div>
         <Count
           count={this.state.count1}
           onIncrement={this.incrementCount1.bind(this)}
         />
+        <Count
+          count={this.state.count2}
+          onIncrement={this.incrementCount2.bind(this)}
+        />
       </div>
     )
   }
 }
 
-// TODO: make the counter component take a prop that configures the starting value
-// so I could do <Counter start={4} /> to start the counter at 4
-// remember to document it with prop types!
 const App = () => {
-  return <Counter />
+  return <Counter start={4}/>
 }
 
 ReactDOM.render(<App />, document.getElementById('react-root'))
