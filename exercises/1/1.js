@@ -3,7 +3,7 @@ import '../common.css'
 import ReactDOM from 'react-dom'
 import React from 'react'
 
-// React components are just functions that return elements.
+// React (functional) components are just functions that return elements.
 const HelloWorld = () => {
   // Attributes supplied in second parameter.
   // 'className' must be used instead of 'class'.
